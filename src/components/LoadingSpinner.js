@@ -1,7 +1,7 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 // forwardRef usage (API changes in React 19)
-const LoadingSpinner = forwardRef(function LoadingSpinner({ size, message }, ref) {
+const LoadingSpinner = function LoadingSpinner({ size = 'medium', message = 'Loading...', ref }) {
   const spinnerSize = size || 'medium';
 
   return (
@@ -10,12 +10,6 @@ const LoadingSpinner = forwardRef(function LoadingSpinner({ size, message }, ref
       {message && <p className="loading-message">{message}</p>}
     </div>
   );
-});
-
-// defaultProps on forwardRef component (deprecated in React 19)
-LoadingSpinner.defaultProps = {
-  size: 'medium',
-  message: 'Loading...',
 };
 
 export default LoadingSpinner;
